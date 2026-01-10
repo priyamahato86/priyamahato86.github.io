@@ -1,0 +1,378 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- THEME VARIABLES ---------- */
+/* default (base) - you can treat default as light or neutral */
+:root {
+  --bg: #1e1e1e;
+  /* default background (when no class) */
+  --card: #151515;
+  --muted: #9aa0a6;
+  --text: #e6e6e6;
+  --accent: #caa8ff;
+  color-scheme: dark;
+}
+
+/* explicit dark */
+html.dark {
+  --bg: #1e1e1e;
+  --card: #151515;
+  --muted: #9aa0a6;
+  --text: #e6e6e6;
+  --accent: #caa8ff;
+  color-scheme: dark;
+}
+
+/* explicit light */
+html.light {
+  --bg: #f7f7f8;
+  /* page background in light mode */
+  --card: #ffffff;
+  /* card background in light mode */
+  --muted: #6b7280;
+  /* muted text color */
+  --text: #0f172a;
+  /* main text color */
+  --accent: #a855f7;
+  color-scheme: light;
+}
+
+/* ---------- UTILITY CLASSES (use these in your components) ---------- */
+
+/* page bg + text */
+.bg-theme {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* card surface (panels) */
+.card-theme {
+  background-color: var(--card);
+  color: var(--text);
+  border-color: rgba(0, 0, 0, 0.06);
+  /* subtle border */
+}
+
+/* text helpers */
+.text-theme {
+  color: var(--text);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+/* If you need to override an existing text color produced by Tailwind,
+   prefer `text-theme` instead of `text-gray-200` etc. */
+
+/* example stronger dot pulse */
+@keyframes blinkPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.9);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.22);
+    box-shadow: 0 0 10px 6px rgba(34, 197, 94, 0.18);
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    opacity: 1;
+  }
+}
+
+.blink-dot-strong {
+  color: #22c55e;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: blinkPulse 1.6s ease-in-out infinite;
+}
+
+.blink-dot-strong svg,
+.blink-dot-strong path {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Buttons that adapt to theme */
+.btn-primary {
+  background-color: var(--text);
+  color: var(--card);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transition: opacity .15s ease, transform .12s ease;
+}
+
+.btn-primary:hover {
+  opacity: .95;
+  transform: translateY(-1px);
+}
+
+/* Outline / ghost button that adapts */
+.btn-outline {
+  position: relative;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  transition: opacity .15s ease, transform .12s ease;
+}
+
+.btn-outline::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1.5px solid var(--text);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.btn-outline:hover {
+  opacity: .95;
+  transform: translateY(-1px);
+}
+
+.btn-outline:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Gradient accent text utility (keeps as-is across themes) */
+.gradient-name {
+  background: linear-gradient(90deg, var(--accent) 0%, #c2a8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+}
+
+/* Serif font hint */
+.font-serif-custom {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ---------- Bottom Nav Background & Icon Color ---------- */
+
+html.dark {
+  /* Bottom nav is WHITE in dark mode */
+  --bottom-nav-bg: #ffffff;
+  --bottom-nav-icon: #0b0b0c;
+  /* dark icons on white */
+}
+
+html.light {
+  /* Bottom nav is BLACK in light mode */
+  --bottom-nav-bg: #000000;
+  --bottom-nav-icon: #ffffff;
+  /* white icons on black */
+}
+
+/* fallback (default mode) */
+:root {
+  --bottom-nav-bg: #ffffff;
+  --bottom-nav-icon: #0b0b0c;
+}
+
+/* highlight base */
+.links-nav-wrap {
+  position: relative;
+  --x: 0px;
+  --w: 0px;
+}
+
+.links-highlight-bg {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(var(--x)) translateY(-50%);
+  width: var(--w);
+  height: 36px;
+  /* adjust height for pill */
+  border-radius: 10px;
+  /* smooth pill */
+  background: rgba(255, 255, 255, 0.08);
+  /* dark-mode default */
+  transition:
+    transform 260ms cubic-bezier(.2, .9, .2, 1),
+    width 260ms cubic-bezier(.2, .9, .2, 1),
+    opacity 200ms ease;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform, width;
+}
+
+/* light-mode color for highlight (if you have html.light) */
+html.light .links-highlight-bg {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* reveal when hovered somewhere in nav (keeps smooth) */
+.links-nav-wrap:hover .links-highlight-bg {
+  opacity: 1;
+}
+
+
+/* subtle lift + scale + rotate on hover, with smooth transition */
+.tool-item {
+  transition: transform 220ms cubic-bezier(.2, .9, .25, 1), box-shadow 220ms ease, background-color 180ms ease;
+  will-change: transform;
+  cursor: default;
+  border-radius: 14px;
+}
+
+.tool-item:focus {
+  outline: none;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* icon animation (rotate + scale) */
+.tool-item:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+  /* subtle backdrop */
+}
+
+/* small micro-rotation for icon itself */
+.tool-item .icon-wrap img {
+  transition: transform 220ms cubic-bezier(.2, .8, .25, 1);
+  transform-origin: center;
+}
+
+.tool-item:hover .icon-wrap img {
+  transform: rotate(5deg) scale(1.04);
+}
+
+/* focus-visible for keyboard users */
+.tool-item:focus-visible {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+  transform: translateY(-3px) scale(1.015);
+}
+
+/* adjust icon container in light theme if needed */
+html.light .icon-wrap {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Dark theme hover clarity */
+html.dark .tool-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  /* visible surface */
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  /* subtle outline */
+}
+
+html.dark .tool-item:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+
+/* make sure touch devices still show pointer feedback */
+@media (hover: none) {
+  .tool-item {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .tool-item .icon-wrap img {
+    transform: none !important;
+  }
+}
+
+/* Certification cards animation */
+.cert-card {
+  will-change: transform;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+html.light .cert-card:hover {
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+}
+
+.cert-card img {
+  transition: transform 220ms ease;
+}
+
+.cert-card:hover img {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+@keyframes signatureFade {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  25% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+.animate-signature {
+  animation: signatureFade 4s ease-in-out infinite;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-enter {
+  animation: pageEnter 500ms ease-out both;
+}
+
+html {
+  scroll-behavior: smooth;
+}
