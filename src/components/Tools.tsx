@@ -27,7 +27,7 @@ export default function ToolsFullStack() {
                     aria-label={it.name}
                     title={it.name}
                   >
-                    <div className="icon-wrap w-9 h-9 rounded-md flex items-center justify-center overflow-hidden bg-white/5">
+                    <div className="icon-wrap w-9 h-9 rounded-md flex items-center justify-center overflow-hidden bg-gray-100 dark:bg-white/5">
                       <img src={it.icon} alt={it.name} className="w-6 h-6 object-contain" />
                     </div>
 

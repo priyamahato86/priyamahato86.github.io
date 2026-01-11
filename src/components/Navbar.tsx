@@ -49,7 +49,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Only: Availability Badge */}
-            <div className="flex sm:hidden items-center gap-2 card-theme rounded-full px-3 py-2 border border-black/10">
+            <div className="flex sm:hidden items-center gap-2 card-theme rounded-full px-3 py-2 border border-gray-200 dark:border-white/10">
               <Dot className="w-3.5 h-3.5 blink-dot-strong" />
               <span className="text-theme text-xs">Available for work</span>
             </div>
@@ -58,13 +58,13 @@ export default function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3">
             {/* Desktop Only: Availability Badge */}
-            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full px-3 py-2 border border-black/10">
+            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full px-3 py-2 border border-gray-200 dark:border-white/10">
               <Dot className="w-3.5 h-3.5 blink-dot-strong" />
               <span className="text-sm text-theme">Available for work</span>
             </div>
 
             {/* Desktop Only: Full Theme Toggle */}
-            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full p-1 border border-black/10">
+            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full p-1 border border-gray-200 dark:border-white/10">
               <button
                 onClick={() => handleTheme("light")}
                 aria-pressed={theme === "light"}
@@ -105,7 +105,7 @@ export default function Navbar() {
             {/* Mobile Only: Single Theme Toggle */}
             <button
               onClick={() => handleTheme(theme === "light" ? "dark" : "light")}
-              className="flex sm:hidden items-center justify-center p-2 rounded-full card-theme border border-black/10"
+              className="flex sm:hidden items-center justify-center p-2 rounded-full card-theme border border-gray-200 dark:border-white/10"
               aria-label="Toggle theme"
             >
               {theme === "light" ? (

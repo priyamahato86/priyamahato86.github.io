@@ -89,7 +89,7 @@ export default function Projects({
             <div key={index} className="group cursor-default">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
+                  <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:bg-gray-200 dark:group-hover:bg-white/15">
                     <img
                       src={item.company.logo}
                       alt={item.company.name}
@@ -112,7 +112,7 @@ export default function Projects({
 
               {/* divider except last item */}
               {index !== profile.experience.length - 1 && (
-                <hr className="border-white/5 my-4" />
+                <hr className="border-gray-200 dark:border-white/5 my-4" />
               )}
             </div>
           ))}

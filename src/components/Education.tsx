@@ -17,7 +17,7 @@ export default function Education() {
                             <div className="flex items-start justify-between">
                                 <div className="flex items-center gap-3">
                                     {/* Institution Icon */}
-                                    <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
+                                    <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-gray-200 dark:group-hover:bg-white/15">
                                         <img
                                             src={edu.icon}
                                             alt={edu.school}
@@ -44,7 +44,7 @@ export default function Education() {
 
                             {/* divider except last item */}
                             {index !== education.length - 1 && (
-                                <hr className="border-white/5 my-4" />
+                                <hr className="border-gray-200 dark:border-white/5 my-4" />
                             )}
                         </div>
                     ))}

@@ -24,12 +24,12 @@ export default function Certifications() {
               href={cert.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="cert-card group block rounded-lg p-4 border border-white/10 bg-white/5 transition-all duration-300"
+              className="cert-card group block rounded-lg p-4 border border-gray-200 dark:border-white/10 bg-gray-50/50 dark:bg-white/5 transition-all duration-300 hover:bg-gray-100 dark:hover:bg-white/10"
             >
               <div className="flex items-start justify-between gap-4">
                 <div className="flex items-start gap-3">
                   {/* Provider Icon */}
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                  <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
                     <img
                       src={cert.providerIcon}
                       alt={cert.issuer}

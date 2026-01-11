@@ -285,11 +285,30 @@ html.light .links-highlight-bg {
 }
 
 /* adjust icon container in light theme if needed */
-html.light .icon-wrap {
-  background: rgba(255, 255, 255, 0.03);
+/* Light theme premium look for tool items */
+html.light .tool-item {
+  background: rgba(0, 0, 0, 0.015);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: all 220ms ease;
 }
 
-/* Dark theme hover clarity */
+html.light .tool-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+html.light .icon-wrap {
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Dark theme premium look for tool items */
+html.dark .tool-item {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
 html.dark .tool-item:hover {
   background: rgba(255, 255, 255, 0.06);
   /* visible surface */
