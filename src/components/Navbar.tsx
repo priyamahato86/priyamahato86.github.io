@@ -1,6 +1,6 @@
 import { Dot, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
-
+import { profile } from "../Data/profile";
 export default function Navbar() {
   const [theme, setTheme] = useState<"dark" | "light" | "default">("dark");
 
@@ -38,61 +38,82 @@ export default function Navbar() {
     <header className="relative z-20 bg-theme">
       <nav className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
-          {/* Left side (brand + location) */}
+          {/* Left side */}
           <div className="flex items-center gap-3">
-            <div className="text-lg font-semibold text-theme select-none">PM</div>
-            <div className="text-sm text-muted sm:block">Kolkata , West Bengal</div>
+            {/* Desktop Only: Brand + Location */}
+            <div className="hidden sm:flex items-center gap-3">
+              <div className="text-lg font-semibold text-theme select-none">
+                PM
+              </div>
+              <div className="text-sm text-muted">{profile.basic.location}</div>
+            </div>
+
+            {/* Mobile Only: Availability Badge */}
+            <div className="flex sm:hidden items-center gap-2 card-theme rounded-full px-3 py-2 border border-black/10">
+              <Dot className="w-3.5 h-3.5 blink-dot-strong" />
+              <span className="text-theme text-xs">Available for work</span>
+            </div>
           </div>
 
-          {/* Right side: responsive stacking */}
-          <div className="flex items-center">
-            <div
-              className="flex flex-col md:flex-row md:items-center md:gap-3 items-end gap-3"
-              aria-hidden={false}
-            >
-              {/* Availability Badge */}
-              <div className="flex items-center gap-2 card-theme rounded-full px-3 py-2 border border-black/10">
-                <Dot className="w-3.5 h-3.5 blink-dot-strong" />
-                <span className="text-sm text-theme">Available for work</span>
-              </div>
-
-              {/* Theme toggles: on mobile these will be below because of flex-col,
-                  on md+ they will be to the right because of md:flex-row */}
-              <div className="flex items-center gap-2 card-theme rounded-full p-1 border border-black/10">
-                <button
-                  onClick={() => handleTheme("light")}
-                  aria-pressed={theme === "light"}
-                  className={`flex items-center justify-center p-2 rounded-full transition-all duration-200 ${
-                    theme === "light" ? "bg-[var(--text)] text-[var(--card)]" : "text-muted hover:text-theme"
-                  }`}
-                  aria-label="Switch to light theme"
-                >
-                  <Sun className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={() => handleTheme("default")}
-                  aria-pressed={theme === "default"}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${
-                    theme === "default" ? "bg-[var(--text)] text-[var(--card)]" : "text-muted hover:text-theme"
-                  }`}
-                  aria-label="Reset theme to default"
-                >
-                  Default
-                </button>
-
-                <button
-                  onClick={() => handleTheme("dark")}
-                  aria-pressed={theme === "dark"}
-                  className={`flex items-center justify-center p-2 rounded-full transition-all duration-200 ${
-                    theme === "dark" ? "bg-[var(--text)] text-[var(--card)]" : "text-muted hover:text-theme"
-                  }`}
-                  aria-label="Switch to dark theme"
-                >
-                  <Moon className="w-4 h-4" />
-                </button>
-              </div>
+          {/* Right side */}
+          <div className="flex items-center gap-3">
+            {/* Desktop Only: Availability Badge */}
+            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full px-3 py-2 border border-black/10">
+              <Dot className="w-3.5 h-3.5 blink-dot-strong" />
+              <span className="text-sm text-theme">Available for work</span>
             </div>
+
+            {/* Desktop Only: Full Theme Toggle */}
+            <div className="hidden sm:flex items-center gap-2 card-theme rounded-full p-1 border border-black/10">
+              <button
+                onClick={() => handleTheme("light")}
+                aria-pressed={theme === "light"}
+                className={`flex items-center justify-center p-2 rounded-full transition-all duration-200 ${theme === "light"
+                  ? "bg-[var(--text)] text-[var(--card)]"
+                  : "text-muted hover:text-theme"
+                  }`}
+                aria-label="Switch to light theme"
+              >
+                <Sun className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => handleTheme("default")}
+                aria-pressed={theme === "default"}
+                className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${theme === "default"
+                  ? "bg-[var(--text)] text-[var(--card)]"
+                  : "text-muted hover:text-theme"
+                  }`}
+                aria-label="Reset theme to default"
+              >
+                Default
+              </button>
+
+              <button
+                onClick={() => handleTheme("dark")}
+                aria-pressed={theme === "dark"}
+                className={`flex items-center justify-center p-2 rounded-full transition-all duration-200 ${theme === "dark"
+                  ? "bg-[var(--text)] text-[var(--card)]"
+                  : "text-muted hover:text-theme"
+                  }`}
+                aria-label="Switch to dark theme"
+              >
+                <Moon className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Mobile Only: Single Theme Toggle */}
+            <button
+              onClick={() => handleTheme(theme === "light" ? "dark" : "light")}
+              className="flex sm:hidden items-center justify-center p-2 rounded-full card-theme border border-black/10"
+              aria-label="Toggle theme"
+            >
+              {theme === "light" ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
+            </button>
           </div>
         </div>
       </nav>

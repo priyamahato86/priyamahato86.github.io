@@ -1,4 +1,3 @@
-import React from "react";
 import { profile } from "../Data/profile";
 type Project = {
   id: string;
@@ -87,14 +86,14 @@ export default function Projects({
         {/* Experience List */}
         <div className="space-y-6">
           {profile.experience.map((item, index) => (
-            <div key={index}>
+            <div key={index} className="group cursor-default">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center overflow-hidden">
+                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:bg-white/15">
                     <img
                       src={item.company.logo}
                       alt={item.company.name}
-                      className="w-full h-full object-contain"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:rotate-6"
                     />
                   </div>
 

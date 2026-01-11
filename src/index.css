@@ -183,6 +183,9 @@ html.dark {
   --bottom-nav-bg: #ffffff;
   --bottom-nav-icon: #0b0b0c;
   /* dark icons on white */
+  --bottom-nav-hover: rgba(0, 0, 0, 0.08);
+  --bottom-nav-active: rgba(0, 0, 0, 0.15);
+  --bottom-nav-border: rgba(0, 0, 0, 0.1);
 }
 
 html.light {
@@ -190,12 +193,18 @@ html.light {
   --bottom-nav-bg: #000000;
   --bottom-nav-icon: #ffffff;
   /* white icons on black */
+  --bottom-nav-hover: rgba(255, 255, 255, 0.15);
+  --bottom-nav-active: rgba(255, 255, 255, 0.25);
+  --bottom-nav-border: rgba(255, 255, 255, 0.2);
 }
 
 /* fallback (default mode) */
 :root {
   --bottom-nav-bg: #ffffff;
   --bottom-nav-icon: #0b0b0c;
+  --bottom-nav-hover: rgba(0, 0, 0, 0.08);
+  --bottom-nav-active: rgba(0, 0, 0, 0.15);
+  --bottom-nav-border: rgba(0, 0, 0, 0.1);
 }
 
 /* highlight base */

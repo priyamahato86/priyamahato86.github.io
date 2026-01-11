@@ -66,6 +66,7 @@ export default function Hero() {
               {profile.basic.name}
             </h1>
             <p className="text-muted text-sm">{profile.basic.role}</p>
+            <p className="text-muted text-xs sm:hidden mt-0.5">{profile.basic.location}</p>
           </div>
         </div>
 
