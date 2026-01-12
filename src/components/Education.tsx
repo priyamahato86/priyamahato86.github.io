@@ -17,11 +17,11 @@ export default function Education() {
                             <div className="flex items-start justify-between">
                                 <div className="flex items-center gap-3">
                                     {/* Institution Icon */}
-                                    <div className="w-8 h-8 rounded-md bg-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-gray-200 dark:group-hover:bg-white/15">
+                                    <div className="w-8 h-8 rounded-md bg-zinc-900 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:bg-zinc-800 dark:group-hover:bg-white/15">
                                         <img
                                             src={edu.icon}
                                             alt={edu.school}
-                                            className="w-full h-full object-contain transition-transform duration-300 group-hover:rotate-6"
+                                            className="w-full h-full object-contain p-1 transition-transform duration-300 group-hover:rotate-6"
                                         />
                                     </div>
 

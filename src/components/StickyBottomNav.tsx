@@ -9,7 +9,7 @@ const items = [
   {
     id: "certificates",
     href: "#certificates",
-    label: "Certificates",
+    label: "Certifications",
     Icon: Award,
   },
 ];
