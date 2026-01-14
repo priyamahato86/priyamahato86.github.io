@@ -89,7 +89,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/resume.pdf"
+              href={profile.basic.resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline flex items-center gap-2 group"
