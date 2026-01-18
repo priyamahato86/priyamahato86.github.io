@@ -77,7 +77,7 @@ export default function Navbar() {
                 <Sun className="w-4 h-4" />
               </button>
 
-              <button
+              {/* <button
                 onClick={() => handleTheme("default")}
                 aria-pressed={theme === "default"}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-200 ${theme === "default"
@@ -87,7 +87,7 @@ export default function Navbar() {
                 aria-label="Reset theme to default"
               >
                 Default
-              </button>
+              </button> */}
 
               <button
                 onClick={() => handleTheme("dark")}

@@ -52,7 +52,7 @@ export default function Hero() {
           <div
             className="w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 border-2 border-black dark:border-white/20 
                        shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.05)]
-                       hover:rotate-3 hover:scale-110 hover:-translate-y-1 transition-all duration-500 ease-out cursor-pointer"
+                       hover:rotate-3 hover:scale-110 hover:-translate-y-1 transition-all duration-500 ease-out"
           >
             <img
               src={profile.basic.img}
